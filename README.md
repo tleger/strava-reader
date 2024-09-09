@@ -56,6 +56,8 @@ This project fetches activities from the Strava API and stores them in a SQLite 
     pre-commit install
     ```
 
+## Running the application
+Simple run `python main.py`.
 
 ## Continuous Integration
 This project uses GitHub Actions for continuous integration. The configuration file is located at `.github/workflows/ci.yml`.
