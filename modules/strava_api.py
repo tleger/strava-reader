@@ -37,7 +37,7 @@ def get_access_token() -> str:
 
 def fetch_activities(access_token: str) -> list[dict]:
     """Fetch all activities from Strava."""
-    activites_endpoint = "https://www.strava.com/api/v3/athlete/activities"
+    activities_endpoint = "https://www.strava.com/api/v3/athlete/activities"
     headers = {"Authorization": f"Bearer {access_token}"}
     page = 1
     results = []
@@ -46,7 +46,7 @@ def fetch_activities(access_token: str) -> list[dict]:
         logging.info(f"Fetching page {page}")
         try:
             response = httpx.get(
-                activites_endpoint,
+                activities_endpoint,
                 headers=headers,
                 params={"per_page": 200, "page": page},
                 timeout=60,
@@ -58,8 +58,8 @@ def fetch_activities(access_token: str) -> list[dict]:
                 break  # No more data to fetch
 
             results.extend(data)
-            break
             page += 1
+
         except httpx.RequestError as e:
             logging.error(f"An error occurred while requesting data: {e}")
             break
