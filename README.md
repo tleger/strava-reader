@@ -10,6 +10,12 @@ This project fetches activities from the Strava API and stores them in a SQLite 
 - Type hints for better code clarity
 - Logging for debugging and monitoring
 
+## Upcoming features
+
+- Listen for new strava activities via [Strava Webhooks](https://developers.strava.com/docs/webhooks/)
+- Get second-granularity power and HR data via the [api](https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams)
+- Use plotly to visualise
+
 ## Requirements
 
 - Python 3.11
