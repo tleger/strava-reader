@@ -40,7 +40,11 @@ def test_get_access_token_failure(mock_post: Mock):
 @patch("httpx.get")
 def test_fetch_activities_success(mock_get: Mock):
     """Test fetch_activities successfully retrieves activities."""
-    mock_get.return_value = create_mock_response([{"id": 1, "name": "Test Activity"}])
+    # Simulate two pages of data
+    mock_get.side_effect = [
+        create_mock_response([{"id": 1, "name": "Test Activity"}]),
+        create_mock_response([]),  # End of data
+    ]
 
     activities = fetch_activities("mock_access_token")
 
