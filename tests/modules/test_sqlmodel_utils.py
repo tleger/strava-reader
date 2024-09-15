@@ -86,13 +86,13 @@ class TestSQLModelUtils:
 
         with caplog.at_level(logging.INFO):
             save_activities_to_db(ACTIVITY_DATA, db_engine=self.test_engine)
-        assert "Successfully saved 1 activities to the database." in caplog.text
+        assert "Successfully saved 1 records to the database." in caplog.text
 
         mock_session_instance.commit.side_effect = IntegrityError(
             "Mocked IntegrityError", None, Exception()
         )
         save_activities_to_db(ACTIVITY_DATA, db_engine=self.test_engine)
         assert (
-            "Some activities already exist in the database and were skipped."
+            "Operation cancelled: Some records already exist in the database."
             in caplog.text
         )

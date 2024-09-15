@@ -15,14 +15,12 @@ def main():
     """
     try:
         access_token = strava_api.get_access_token()
-        activities = strava_api.fetch_activities(access_token)
-        if activities:
-            sqlmodel_utils.save_activities_to_db(activities)
-            logging.info(
-                f"Successfully saved {len(activities)} activities to the database"
-            )
+        routes = strava_api.fetch_athlete_routes(access_token)
+        if routes:
+            sqlmodel_utils.save_routes_to_db(routes)
+            logging.info(f"Successfully saved {len(routes)} routes to the database")
         else:
-            logging.info("No activities were found.")
+            logging.info("No routes were found.")
     except Exception as e:
         logging.error(f"An error occurred: {e}")
 

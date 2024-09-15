@@ -1,7 +1,7 @@
 from sqlmodel import Field, SQLModel
 
 
-class Activity(SQLModel):
+class Activity(SQLModel, table=True):
     """
     Model for strava activities. Unused fields are left in (but commented out) for future reference.
     """
@@ -62,3 +62,8 @@ class Activity(SQLModel):
     # total_photo_count: float
     # has_kudoed: bool
     # suffer_score: float
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        if "id" not in data:
+            raise ValueError("Field 'id' is required")
