@@ -1,4 +1,3 @@
-import os
 import logging
 
 from dotenv import load_dotenv
@@ -16,7 +15,7 @@ logging.basicConfig(
 load_dotenv(".env")
 
 # Load database configuration from environment variables
-sqlite_file_name = os.getenv("SQLITE_FILE_NAME", "database.db")
+sqlite_file_name = "database.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
 engine = create_engine(sqlite_url, echo=False)
 SQLModel.metadata.create_all(engine)
