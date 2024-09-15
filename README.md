@@ -48,10 +48,10 @@ This project fetches activities from the Strava API and stores them in a SQLite 
     Create a `.env` file in the root directory and add the following (replacing placeholder values with your actual credentials):
 
     ```env
+    PASSWORD=your_password
     STRAVA_CLIENT_ID=your_client_id
     STRAVA_CLIENT_SECRET=your_client_secret
     STRAVA_REFRESH_TOKEN=your_refresh_token
-    SQLITE_FILE_NAME=database_name_eg_"database.db"
     ```
 
 5. **Pre-commit**
